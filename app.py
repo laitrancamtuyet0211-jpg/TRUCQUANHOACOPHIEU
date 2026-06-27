@@ -41,9 +41,14 @@ end_date = st.sidebar.date_input(
 # NÚT CHẠY
 # =============================
 
-if st.sidebar.button("Phân tích"):
+with st.spinner("Đang tải dữ liệu..."):
 
-    with st.spinner("Đang tải dữ liệu..."):
+    df = yf.download(
+        ticker,
+        start=start_date,
+        end=end_date,
+        progress=False
+    )
 
         df = yf.download(
             ticker,
